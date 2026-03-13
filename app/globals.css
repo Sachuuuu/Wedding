@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #faf7f2;
+  --foreground: #2e2726;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(214, 168, 165, 0.28);
+  color: #2e2726;
+}
+
+@layer base {
+  * {
+    @apply border-transparent;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif tracking-tight text-ink;
+  }
+
+  p {
+    @apply leading-7 text-muted;
+  }
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-space {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
+  .card-luxury {
+    @apply rounded-3xl border border-white/60 bg-white/70 shadow-soft backdrop-blur-md;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-ink px-6 py-3 text-sm font-medium text-white transition duration-300 hover:-translate-y-0.5 hover:shadow-glow focus:outline-none focus:ring-2 focus:ring-gold/40;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-gold/40 bg-white/70 px-5 py-3 text-sm font-medium text-ink transition duration-300 hover:-translate-y-0.5 hover:border-gold hover:bg-white;
+  }
+
+  .gradient-ring {
+    position: relative;
+  }
+
+  .gradient-ring::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(197, 164, 109, 0.6),
+      rgba(239, 207, 206, 0.5),
+      rgba(255, 255, 255, 0.7)
+    );
+  }
+
+  .glass-line {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(197, 164, 109, 0.5),
+      transparent
+    );
+    height: 1px;
+  }
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(197, 164, 109, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(197, 164, 109, 0.06) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.mask-fade-bottom {
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
