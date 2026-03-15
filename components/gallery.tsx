@@ -14,7 +14,7 @@ export function Gallery() {
           <SectionHeading
             eyebrow="Captured Moments"
             title="A glimpse into our love story"
-            description="A curated gallery space with placeholders ready for your engagement and pre-wedding photographs."
+            description="A curated gallery space prepared to beautifully display the special memories from our engagement and pre-wedding journey."
           />
         </Reveal>
 

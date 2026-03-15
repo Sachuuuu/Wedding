@@ -49,22 +49,22 @@ export const eventCards = [
   },
   {
     title: "Reception",
-    description: "An evening of music, laughter, and celebration with loved ones.",
+    description: "A beautiful day of music, laughter, and celebration with loved ones.",
     icon: GlassWater
   },
   {
     title: "Venue",
-    description: "The Grand Ivory Ballroom, Colombo",
+    description: "Lotus Ballroom Shangri-La, Colombo",
     icon: MapPinned
   },
   {
     title: "Time",
-    description: "Ceremony at 10:00 AM · Reception at 6:30 PM",
+    description: "Poruwa Ceremony at 09:30 AM · Reception at 10:00 AM to 02:30 PM",
     icon: Clock3
   },
   {
     title: "Dress Code",
-    description: "Elegant pastel attire or formal traditional wear.",
+    description: "Elegant attire or formal traditional wear.",
     icon: Shirt
   }
 ];

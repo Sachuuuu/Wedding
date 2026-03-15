@@ -198,11 +198,11 @@ export function RSVPForm() {
             }}
             required
             className="w-full rounded-2xl border border-gold/15 bg-white px-4 py-3 text-sm text-ink outline-none transition focus:border-gold"
-            placeholder="0713099406 or +94713099406"
+            placeholder="0711234567 or +94711234567"
           />
 
           <p className="mt-1 text-xs text-muted">
-            Accepted: 0713099406 or +94713099406
+            Accepted: 0711234567 or +94711234567
           </p>
         </div>
 
