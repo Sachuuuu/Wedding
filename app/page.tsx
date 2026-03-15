@@ -169,11 +169,11 @@ export default function HomePage() {
               </p>
 
               <p className="mt-3 text-sm uppercase tracking-widest text-gold">
-                request the honor of the presence of
+                request the honor of your presence
               </p>
 
               <p className="mt-4">
-                on the occasion of the marriage of their daughter
+                at the occasion of the marriage of their daughter
               </p>
 
               <h3 className="mt-4 text-3xl font-serif text-ink">
