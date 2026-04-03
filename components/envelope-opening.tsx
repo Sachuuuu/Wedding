@@ -56,7 +56,7 @@ export default function EnvelopeOpening({
                 <svg
                     viewBox="0 0 100 100"
                     preserveAspectRatio="none"
-                    className="w-full h-full rotate-180 text-[#d7bc8c] drop-shadow-[0_-8px_16px_rgba(0,0,0,0.6)]"
+                    className="w-full h-full rotate-180 text-[#c49d58] drop-shadow-[0_-8px_16px_rgba(0,0,0,0.6)]"
                 >
                     {/* Classic sharp V-shape meeting at X=50, Y=75 */}
                     <path
