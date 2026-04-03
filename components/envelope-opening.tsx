@@ -107,13 +107,21 @@ export default function EnvelopeOpening({
                         top: "52.5vh",
                         transform: "translate(-50%, -50%)"
                     }}
-                >
+                >   <div
+                    className="absolute inset-0"
+                    style={{
+                        filter: "drop-shadow(0 12px 24px rgba(0, 0, 0, 0.8))",
+                        transform: "translateZ(0)",
+                        WebkitTransform: "translateZ(0)", // Safari specific hardware acceleration
+                        willChange: "filter, transform" // Tells browser not to optimize the shadow into a square
+                    }}
+                ></div>
                     {/* Your PNG Seal Image */}
                     <Image
                         src="/envelope/seal.png"
                         alt="Wax Seal"
                         fill
-                        className="object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.8)]"
+                        className="object-contain"
                         priority
                         unoptimized
                     />
