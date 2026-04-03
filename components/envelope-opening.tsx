@@ -102,7 +102,7 @@ export default function EnvelopeOpening({
             >
                 {/* Adjusted top position to exactly 52.5vh to perfectly lock onto the sharp point */}
                 <div
-                    className="absolute left-1/2 w-28 h-28 sm:w-36 sm:h-36 drop-shadow-[0_12px_24px_rgba(0,0,0,0.8)] flex items-center justify-center"
+                    className="absolute left-1/2 w-28 h-28 sm:w-36 sm:h-36 flex items-center justify-center"
                     style={{
                         top: "52.5vh",
                         transform: "translate(-50%, -50%)"
@@ -113,7 +113,7 @@ export default function EnvelopeOpening({
                         src="/envelope/seal.png"
                         alt="Wax Seal"
                         fill
-                        className="object-contain"
+                        className="object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.8)]"
                         priority
                         unoptimized
                     />
