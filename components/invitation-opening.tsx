@@ -7,10 +7,12 @@ import BrushReveal from "@/components/brush-reveal";
 
 type InvitationOpeningProps = {
   onComplete: () => void;
+  onEnvelopeReady: () => void; // <-- 1. Add this new prop
 };
 
 export function InvitationOpening({
-  onComplete
+  onComplete,
+  onEnvelopeReady // <-- 2. Destructure it
 }: InvitationOpeningProps) {
   const [stage, setStage] = useState<"intro" | "envelope" | "opening">("intro");
 
@@ -20,7 +22,7 @@ export function InvitationOpening({
     }, 7000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [onEnvelopeReady]);
 
   useEffect(() => {
     if (stage === "opening") {
@@ -81,6 +83,7 @@ export function InvitationOpening({
 
     {stage === "envelope" && (
       <EnvelopeOpening
+      onMounted={onEnvelopeReady}
         onOpen={() => {
           setStage("opening");
         }}

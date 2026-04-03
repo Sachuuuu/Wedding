@@ -1,16 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export default function EnvelopeOpening({
     onOpen,
+    onMounted, // <-- Added new prop
 }: {
     onOpen: () => void;
+    onMounted?: () => void; // <-- Added new prop type
 }) {
     const [isOpen, setIsOpen] = useState(false);
-
+    useEffect(() => {
+        if (onMounted) onMounted();
+    }, [onMounted]);
     const handleOpen = () => {
         if (isOpen) return;
         setIsOpen(true);
@@ -18,7 +22,7 @@ export default function EnvelopeOpening({
         // Unmount and reveal the main page smoothly after the main flaps finish sliding
         setTimeout(() => {
             onOpen();
-        }, 1400);
+        }, 3000);
     };
 
     return (
@@ -47,7 +51,7 @@ export default function EnvelopeOpening({
                 className="absolute bottom-0 left-0 right-0 z-10 h-[130vh] pointer-events-none"
                 initial={{ y: "0%" }}
                 animate={{ y: isOpen ? "130vh" : "0%" }}
-                transition={{ duration: 1.4, ease: [0.77, 0, 0.175, 1] }}
+                transition={{ duration: 3.0, ease: [0.77, 0, 0.175, 1] }}
             >
                 <svg
                     viewBox="0 0 100 100"
@@ -69,7 +73,7 @@ export default function EnvelopeOpening({
                 className="absolute top-0 left-0 right-0 z-20 h-[70vh] pointer-events-none"
                 initial={{ y: "0%" }}
                 animate={{ y: isOpen ? "-100vh" : "0%" }}
-                transition={{ duration: 1.4, ease: [0.77, 0, 0.175, 1] }}
+                transition={{ duration: 3.0, ease: [0.77, 0, 0.175, 1] }}
             >
                 <svg
                     viewBox="0 0 100 100"
@@ -118,12 +122,12 @@ export default function EnvelopeOpening({
                     <span
                         className="relative z-10 flex items-baseline tracking-wider"
                         style={{
-    fontFamily: "'Brush Script MT', cursive",
-    /* Golden fill with ~20% opacity (0.2) */
-    color: "rgba(238, 238, 231, 0.88)", 
-    WebkitTextStroke: "0.5px rgba(142, 142, 26, 0.83)",
-    filter: "drop-shadow(1px 2px 2px rgba(0,0,0,0.8)) drop-shadow(-1px -1px 1px rgba(255,255,255,0.3))"
-  }}
+                            fontFamily: "'Brush Script MT', cursive",
+                            /* Golden fill with ~20% opacity (0.2) */
+                            color: "rgba(238, 238, 231, 0.88)",
+                            WebkitTextStroke: "0.5px rgba(142, 142, 26, 0.83)",
+                            filter: "drop-shadow(1px 2px 2px rgba(0,0,0,0.8)) drop-shadow(-1px -1px 1px rgba(255,255,255,0.3))"
+                        }}
                     >
                         {/* Larger Initials */}
                         <span className="text-4xl sm:text-5xl">B</span>

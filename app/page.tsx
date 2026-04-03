@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Image from "next/image";
 import { Heart, Sparkles } from "lucide-react";
 import { AudioPlayer } from "@/components/audio-player";
@@ -17,16 +17,27 @@ import { eventCards } from "@/lib/constants";
 
 export default function HomePage() {
   const [opened, setOpened] = useState(false);
-
+  const [envelopeReady, setEnvelopeReady] = useState(false);
+  const handleEnvelopeReady = useCallback(() => {
+    setEnvelopeReady(true);
+  }, []);
   return (
     <>
-      {!opened && <InvitationOpening onComplete={() => setOpened(true)} />}
-
+      {!opened && (
+        <InvitationOpening 
+          onComplete={() => setOpened(true)} 
+          onEnvelopeReady={handleEnvelopeReady} // <-- 3. Pass the function down
+        />
+      )}
       <main
-        className={`relative bg-ivory text-ink transition-all duration-[800ms] ${opened
-            ? "opacity-100 scale-100 blur-0"
-            : "pointer-events-none opacity-0 scale-[1.01] blur-sm"
-          }`}
+        // 4. Update the className logic:
+        // - If the envelope is NOT ready yet (during the intro), hide the main page (opacity-0).
+        // - Once the envelope covers the screen, set it to opacity-100 behind it.
+        className={`relative bg-ivory text-ink ${
+            !envelopeReady && !opened ? "opacity-0" : "opacity-100"
+        } ${
+            !opened ? "pointer-events-none" : ""
+        }`}
       >
         <Navbar />
         <AudioPlayer />
