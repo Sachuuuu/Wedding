@@ -119,25 +119,21 @@ export default function EnvelopeOpening({
                     />
 
                     {/* Realistic Stamped "B&M" Effect */}
-                    <span
+                    {/* <span
                         className="relative z-10 flex items-baseline tracking-wider"
                         style={{
                             fontFamily: "'Brush Script MT', cursive",
-                            /* Golden fill with ~20% opacity (0.2) */
                             color: "rgba(238, 238, 231, 0.88)",
                             WebkitTextStroke: "0.5px rgba(142, 142, 26, 0.83)",
                             filter: "drop-shadow(1px 2px 2px rgba(0,0,0,0.8)) drop-shadow(-1px -1px 1px rgba(255,255,255,0.3))"
                         }}
                     >
-                        {/* Larger Initials */}
                         <span className="text-4xl sm:text-5xl">B</span>
 
-                        {/* Smaller Ampersand */}
                         <span className="text-1xl sm:text-3xl px-1">&</span>
 
-                        {/* Larger Initials */}
                         <span className="text-4xl sm:text-5xl">M</span>
-                    </span>
+                    </span> */}
 
                 </div>
             </motion.div>
