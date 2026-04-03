@@ -86,19 +86,17 @@ export default function EnvelopeOpening({
       </motion.div>
 
       {/* ========================================== */}
-      {/* LAYER 3: WAX SEAL (Moves DOWN Independently) */}
+      {/* LAYER 3: WAX SEAL (Moves DOWN)             */}
       {/* ========================================== */}
       <motion.div
         className="absolute inset-0 z-30 pointer-events-none"
-        initial={{ y: "0%", opacity: 1 }}
-        // Moves further down (150vh) and disappears slightly as it drops
-        animate={{ y: isOpen ? "150vh" : "0%", opacity: isOpen ? 0.4 : 1 }} 
-        // 1.0s duration is much faster than the 1.4s bottom flap, causing it to detach and fall independently
+        initial={{ y: "0%" }}
+        animate={{ y: isOpen ? "130vh" : "0%" }} 
         transition={{ duration: 1.0, ease: [0.77, 0, 0.175, 1] }}
       >
         {/* Adjusted top position to exactly 52.5vh to perfectly lock onto the sharp point */}
         <div 
-          className="absolute left-1/2 w-28 h-28 sm:w-36 sm:h-36 drop-shadow-[0_12px_24px_rgba(0,0,0,0.8)] flex items-center justify-center"
+          className="absolute left-1/2 w-28 h-28 sm:w-36 sm:h-36 drop-shadow-[0_12px_24px_rgba(0,0,0,0.8)] flex items-center justify-center rounded-full bg-[#5A0A0A]"
           style={{ 
             top: "52.5vh", 
             transform: "translate(-50%, -50%)" 
@@ -109,8 +107,9 @@ export default function EnvelopeOpening({
             src="/envelope/seal.png" 
             alt="Wax Seal" 
             fill 
-            className="object-contain" 
+            className="object-contain rounded-full" 
             priority 
+            unoptimized // Forces instant load without Vercel optimization delay
           />
             
           {/* The M&B Initials perfectly centered over the image */}
