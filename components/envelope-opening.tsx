@@ -38,7 +38,7 @@ export default function EnvelopeOpening({
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="absolute top-16 z-[130] animate-pulse text-sm uppercase tracking-[0.35em] text-[#E2C48A] pointer-events-none drop-shadow-md"
+                    className="absolute top-16 z-[130] animate-pulse text-sm uppercase tracking-[0.35em] text-[#F7F1E8] pointer-events-none drop-shadow-md"
                 >
                     Tap to Open
                 </motion.p>
