@@ -26,7 +26,7 @@ export function InvitationOpening({
     if (stage === "opening") {
       const timer = setTimeout(() => {
         onComplete();
-      }, 2200);
+      }, 1000);
 
       return () => clearTimeout(timer);
     }

@@ -23,7 +23,7 @@ export default function HomePage() {
       {!opened && <InvitationOpening onComplete={() => setOpened(true)} />}
 
       <main
-        className={`relative bg-ivory text-ink transition-all duration-[1400ms] ${opened
+        className={`relative bg-ivory text-ink transition-all duration-[800ms] ${opened
             ? "opacity-100 scale-100 blur-0"
             : "pointer-events-none opacity-0 scale-[1.01] blur-sm"
           }`}
