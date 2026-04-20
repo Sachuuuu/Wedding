@@ -19,7 +19,7 @@ export function InvitationOpening({
   useEffect(() => {
     const timer = setTimeout(() => {
       setStage("envelope");
-    }, 7000);
+    }, 100);
 
     return () => clearTimeout(timer);
   }, [onEnvelopeReady]);
@@ -37,7 +37,7 @@ export function InvitationOpening({
  return (
   <AnimatePresence mode="wait">
 
-    {stage === "intro" && (
+    {/* {stage === "intro" && (
       <motion.div
         key="intro"
         initial={{ opacity: 1 }}
@@ -79,7 +79,7 @@ export function InvitationOpening({
           </div>
         </div>
       </motion.div>
-    )}
+    )} */}
 
     {stage === "envelope" && (
       <EnvelopeOpening
