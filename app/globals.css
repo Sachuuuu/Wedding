@@ -1,10 +1,12 @@
+/* app/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #faf7f2;
-  --foreground: #2e2726;
+  /* Dynamically read colors via Tailwind's theme config */
+  --background: theme('colors.ivory');
+  --foreground: theme('colors.ink');
 }
 
 html,
@@ -21,8 +23,8 @@ body {
 }
 
 ::selection {
-  background: rgba(214, 168, 165, 0.28);
-  color: #2e2726;
+  background: theme('colors.rose' / 28%);
+  color: theme('colors.ink');
 }
 
 @layer base {
@@ -63,6 +65,7 @@ body {
     @apply inline-flex items-center justify-center rounded-full border border-gold/40 bg-white/70 px-5 py-3 text-sm font-medium text-ink transition duration-300 hover:-translate-y-0.5 hover:border-gold hover:bg-white;
   }
 
+  /* ... Keep your gradient-ring and glass-line styles as they were ... */
   .gradient-ring {
     position: relative;
   }

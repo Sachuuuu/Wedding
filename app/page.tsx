@@ -14,6 +14,32 @@ import { Reveal } from "@/components/reveal";
 import { RSVPForm } from "@/components/rsvp-form";
 import { SectionHeading } from "@/components/section-heading";
 import { eventCards } from "@/lib/constants";
+import { siteConfig } from '@/lib/config';
+
+const ceremonyLabel =
+  siteConfig.ceremonyType === "Wedding Ceremony"
+    ? "Wedding"
+    : "Homecoming";
+const getOrdinal = (n: number) => {
+  if (n > 3 && n < 21) return "th";
+  switch (n % 10) {
+    case 1: return "st";
+    case 2: return "nd";
+    case 3: return "rd";
+    default: return "th";
+  }
+};
+
+const formatWeddingDate = (dateString: string) => {
+  const date = new Date(dateString);
+
+  const weekday = new Intl.DateTimeFormat("en-GB", { weekday: "long" }).format(date);
+  const month = new Intl.DateTimeFormat("en-GB", { month: "long" }).format(date);
+  const day = date.getDate();
+  const year = date.getFullYear();
+
+  return `${weekday} the ${day}${getOrdinal(day)} of ${month} ${year}`;
+};
 
 export default function HomePage() {
   const [opened, setOpened] = useState(false);
@@ -24,8 +50,8 @@ export default function HomePage() {
   return (
     <>
       {!opened && (
-        <InvitationOpening 
-          onComplete={() => setOpened(true)} 
+        <InvitationOpening
+          onComplete={() => setOpened(true)}
           onEnvelopeReady={handleEnvelopeReady} // <-- 3. Pass the function down
         />
       )}
@@ -33,11 +59,9 @@ export default function HomePage() {
         // 4. Update the className logic:
         // - If the envelope is NOT ready yet (during the intro), hide the main page (opacity-0).
         // - Once the envelope covers the screen, set it to opacity-100 behind it.
-        className={`relative bg-ivory text-ink ${
-            !envelopeReady && !opened ? "opacity-0" : "opacity-100"
-        } ${
-            !opened ? "pointer-events-none" : ""
-        }`}
+        className={`relative bg-ivory text-ink ${!envelopeReady && !opened ? "opacity-0" : "opacity-100"
+          } ${!opened ? "pointer-events-none" : ""
+          }`}
       >
         <Navbar />
         <AudioPlayer />
@@ -176,7 +200,16 @@ export default function HomePage() {
             <div className="mx-auto mt-10 max-w-2xl rounded-3xl border border-gold/10 bg-white/80 p-8 text-center shadow-lg backdrop-blur">
 
               <p className="text-lg">
-                <strong>Mr. & Mrs. Thushara Bulathsinhala</strong>
+                {ceremonyLabel === "Wedding" ? (
+                  <>
+                    <strong>{siteConfig.brideParents}</strong>
+                  </>) :
+                  (
+                    <>
+                      <strong>{siteConfig.groomParents}</strong>
+                    </>
+                  )}
+
               </p>
 
               <p className="mt-3 text-sm uppercase tracking-widest text-gold">
@@ -188,27 +221,38 @@ export default function HomePage() {
               </p>
 
               <h3 className="mt-4 text-3xl font-serif text-ink">
-                Buddhimanthi <span className="text-gold">&</span> Mahinsa
+                {ceremonyLabel === "Wedding" ? (
+                  <>
+                    {siteConfig.bride} <span className="text-gold">&</span> {siteConfig.groom}
+                  </>) :
+                  (
+                    <>
+                      {siteConfig.groom} <span className="text-gold">&</span> {siteConfig.bride}
+                    </>
+                  )}
               </h3>
 
               <p className="mt-4">
-                son of <br />
-                <strong>Mr. & Mrs. Athula Ranasinghe</strong>
+                {ceremonyLabel === "Wedding" ? (
+                  <>
+                    son of <br />
+                    <strong>{siteConfig.groomParents}</strong>
+                  </>
+                ) : (
+                  <>
+                    daughter of <br />
+                    <strong>{siteConfig.brideParents}</strong>
+                  </>
+                )}
               </p>
 
               <p className="mt-6">
-                on <strong>Monday the 25th of May 2026</strong>
+                on <strong>{formatWeddingDate(siteConfig.ceremonyDate)}</strong>
               </p>
 
               <p className="mt-4">
                 At <br />
-                <strong>Lotus Ballroom</strong><br />
-                Shangri-La<br />
-                Colombo
-              </p>
-
-              <p className="mt-4 italic text-gold">
-                (Poruwa ceremony at 09.30 am)
+                <strong>{siteConfig.venue}</strong>
               </p>
             </div>
 
@@ -232,11 +276,21 @@ export default function HomePage() {
               <p className="font-semibold text-ink">Contact details</p>
 
               <p className="mt-2">
-                Thushara – <a href="tel:+94718007123" className="text-gold">071 8007123</a>
+                {siteConfig.brideContactName} – <a
+                  href={`tel:${siteConfig.brideContactNumberInt}`}
+                  className="text-gold"
+                >
+                  {siteConfig.brideContactNumber}
+                </a>
               </p>
 
-              <p>
-                Athula – <a href="tel:+94777687481" className="text-gold">077 7687481</a>
+              <p className="mt-2">
+                {siteConfig.groomContactName} – <a
+                  href={`tel:${siteConfig.groomContactNumberInt}`}
+                  className="text-gold"
+                >
+                  {siteConfig.groomContactNumber}
+                </a>
               </p>
             </div>
 

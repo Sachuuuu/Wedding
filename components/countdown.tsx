@@ -30,10 +30,10 @@ export function Countdown() {
 
   useEffect(() => {
     setMounted(true);
-    setTimeLeft(getTimeLeft(siteConfig.weddingDate));
+    setTimeLeft(getTimeLeft(siteConfig.ceremonyDate));
 
     const interval = setInterval(() => {
-      setTimeLeft(getTimeLeft(siteConfig.weddingDate));
+      setTimeLeft(getTimeLeft(siteConfig.ceremonyDate));
     }, 1000);
 
     return () => clearInterval(interval);

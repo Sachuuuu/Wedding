@@ -1,6 +1,11 @@
 import { navItems } from "@/lib/constants";
 import { MobileNav } from "./mobile-nav";
+import { siteConfig } from '@/lib/config';
 
+const ceremonyLabel =
+  siteConfig.ceremonyType === "Wedding Ceremony"
+    ? "Wedding"
+    : "Homecoming";
 export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
@@ -10,7 +15,9 @@ export function Navbar() {
             href="#home"
             className="font-serif text-sm font-semibold tracking-[0.2em] text-ink sm:text-base"
           >
-            B ♥ M
+            {ceremonyLabel === "Wedding"
+              ? `${siteConfig.bride?.charAt(0).toUpperCase()} ♥ ${siteConfig.groom?.charAt(0).toUpperCase()}`
+              : `${siteConfig.groom?.charAt(0).toUpperCase()} ♥ ${siteConfig.bride?.charAt(0).toUpperCase()}`}
           </a>
 
           <nav className="hidden items-center gap-6 lg:flex">

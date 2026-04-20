@@ -1,4 +1,6 @@
+// tailwind.config.ts
 import type { Config } from "tailwindcss";
+import { siteConfig } from "./lib/config";
 
 const config: Config = {
   content: [
@@ -8,14 +10,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      // Map the colors from lib/config.ts to Tailwind color classes
       colors: {
-        ivory: "#FAF7F2",
-        blush: "#EFCFCE",
-        rose: "#D6A8A5",
-        gold: "#C5A46D",
-        champagne: "#F3E8D6",
-        ink: "#2E2726",
-        muted: "#6C625E"
+        ivory: siteConfig.colors.background,
+        blush: siteConfig.colors.accent,
+        rose: siteConfig.colors.secondary,
+        gold: siteConfig.colors.primary,
+        champagne: siteConfig.colors.champagne,
+        ink: siteConfig.colors.foreground,
+        muted: siteConfig.colors.muted,
+        // Custom hero colors
+        "hero-text": siteConfig.colors.heroText,
+        "hero-amp": siteConfig.colors.heroAmpersand,
+        "hero-sub": siteConfig.colors.heroSubtitle,
       },
       fontFamily: {
         serif: ["Georgia", "Times New Roman", "serif"],

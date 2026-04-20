@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { siteConfig } from '@/lib/config';
 
+const ceremonyLabel =
+  siteConfig.ceremonyType === "Wedding Ceremony"
+    ? "Wedding"
+    : "Homecoming";
 export const metadata: Metadata = {
-  title: "Buddhimanthi & Mahinsa Wedding",
+  title: `${siteConfig.bride} & ${siteConfig.groom} ${ceremonyLabel}`,
   description:
-    "A romantic and elegant wedding invitation website for Buddhimanthi Bulathsinghala and Mahinsa Ranasinghe."
+    "A romantic and elegant wedding invitation website"
 };
 
 export default function RootLayout({

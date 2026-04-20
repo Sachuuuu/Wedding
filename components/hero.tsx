@@ -1,3 +1,4 @@
+// components/hero.tsx
 'use client';
 
 import Image from 'next/image';
@@ -5,6 +6,10 @@ import { motion } from 'framer-motion';
 import { siteConfig } from '@/lib/config';
 
 const petals = Array.from({ length: 18 });
+const ceremonyLabel =
+  siteConfig.ceremonyType === "Wedding Ceremony"
+    ? "Wedding"
+    : "Homecoming";
 
 export function Hero() {
   return (
@@ -62,18 +67,26 @@ export function Hero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85 }}
-            className="text-5xl sm:text-6xl lg:text-8xl font-serif text-[#F8F4ED]"
+            className="text-5xl sm:text-6xl lg:text-8xl font-serif text-hero-text"
           >
-            Buddhimanthi <span className="text-[#D4AF37]">&</span> Mahinsa
+            {ceremonyLabel === "Wedding" ? (
+              <>
+                {siteConfig.bride} <span className="text-hero-amp">{siteConfig.hero.titleAmpersand}</span> {siteConfig.groom}
+              </>) :
+              (
+                <>
+                  {siteConfig.groom} <span className="text-hero-amp">{siteConfig.hero.titleAmpersand}</span> {siteConfig.bride}
+                </>
+              )}
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-6 text-lg max-w-2xl mx-auto text-[#F1E7E3]"
+            className="mt-6 text-lg max-w-2xl mx-auto text-hero-sub"
           >
-            Together with their families invite you to celebrate their wedding
+            {siteConfig.hero.subtitle}
           </motion.p>
 
           <motion.div
@@ -82,8 +95,8 @@ export function Hero() {
             transition={{ delay: 0.3 }}
             className="mt-10"
           >
-            <a href="#rsvp" className="btn-primary">
-              RSVP Now
+            <a href={siteConfig.hero.ctaLink} className="btn-primary">
+              {siteConfig.hero.ctaText}
             </a>
           </motion.div>
         </div>

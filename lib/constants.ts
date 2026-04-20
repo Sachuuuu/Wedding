@@ -5,7 +5,7 @@ import {
   MapPinned,
   Shirt
 } from "lucide-react";
-
+import { siteConfig } from '@/lib/config';
 export const navItems = [
   { label: "Home", href: "#home" },
   { label: "Story", href: "#story" },
@@ -43,28 +43,28 @@ export const galleryImages = [
 
 export const eventCards = [
   {
-    title: "Wedding Ceremony",
-    description: "A warm gathering to witness the beginning of our forever.",
+    title: `${siteConfig.ceremonyType}`,
+    description: `${siteConfig.ceremonyDescription}`,
     icon: CalendarHeart
   },
   {
     title: "Reception",
-    description: "A beautiful day of music, laughter, and celebration with loved ones.",
+    description: `${siteConfig.receptionDescription}`,
     icon: GlassWater
   },
   {
     title: "Venue",
-    description: "Lotus Ballroom Shangri-La, Colombo",
+    description: `${siteConfig.venue}`,
     icon: MapPinned
   },
   {
     title: "Time",
-    description: "Poruwa Ceremony at 09:30 AM · Reception at 10:00 AM to 02:30 PM",
+    description: `${siteConfig.time}`,
     icon: Clock3
   },
   {
     title: "Dress Code",
-    description: "Elegant attire or formal traditional wear.",
+    description: `${siteConfig.dressCode}`,
     icon: Shirt
   }
 ];
