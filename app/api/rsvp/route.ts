@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/config";
 
 type RSVPRequest = {
   fullName?: string;
-  contactNumber?: string;
+  // contactNumber?: string;
   guests?: number;
   attendanceStatus?: "Attending" | "Not Attending";
   message?: string;
@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 
     if (
       !body.fullName ||
-      !body.contactNumber ||
+      // !body.contactNumber ||
       body.guests === undefined ||
       !body.attendanceStatus
     ) {
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
 
     const payload = {
       fullName: body.fullName,
-      contactNumber: body.contactNumber,
+      // contactNumber: body.contactNumber,
       guests: body.guests,
       attendanceStatus: body.attendanceStatus,
       message: body.message || ""

@@ -47,11 +47,11 @@ export const eventCards = [
     description: "A warm gathering to witness the beginning of our forever.",
     icon: CalendarHeart
   },
-  {
-    title: "Reception",
-    description: "A beautiful day of music, laughter, and celebration with loved ones.",
-    icon: GlassWater
-  },
+  // {
+  //   title: "Reception",
+  //   description: "A beautiful day of music, laughter, and celebration with loved ones.",
+  //   icon: GlassWater
+  // },
   {
     title: "Venue",
     description: "Lotus Ballroom Shangri-La, Colombo",
@@ -59,7 +59,7 @@ export const eventCards = [
   },
   {
     title: "Time",
-    description: "Poruwa Ceremony at 09:30 AM · Reception at 10:00 AM to 02:30 PM",
+    description: "Poruwa Ceremony at 09:30 AM Reception at 10:00 AM to 14:30 PM",
     icon: Clock3
   },
   {

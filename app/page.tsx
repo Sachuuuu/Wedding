@@ -24,8 +24,8 @@ export default function HomePage() {
   return (
     <>
       {!opened && (
-        <InvitationOpening 
-          onComplete={() => setOpened(true)} 
+        <InvitationOpening
+          onComplete={() => setOpened(true)}
           onEnvelopeReady={handleEnvelopeReady} // <-- 3. Pass the function down
         />
       )}
@@ -33,11 +33,9 @@ export default function HomePage() {
         // 4. Update the className logic:
         // - If the envelope is NOT ready yet (during the intro), hide the main page (opacity-0).
         // - Once the envelope covers the screen, set it to opacity-100 behind it.
-        className={`relative bg-ivory text-ink ${
-            !envelopeReady && !opened ? "opacity-0" : "opacity-100"
-        } ${
-            !opened ? "pointer-events-none" : ""
-        }`}
+        className={`relative bg-ivory text-ink ${!envelopeReady && !opened ? "opacity-0" : "opacity-100"
+          } ${!opened ? "pointer-events-none" : ""
+          }`}
       >
         <Navbar />
         <AudioPlayer />
@@ -128,7 +126,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="details" className="section-space relative">
+        {/* <section id="details" className="section-space relative">
           <div className="container-shell">
             <Reveal>
               <SectionHeading
@@ -155,8 +153,51 @@ export default function HomePage() {
               })}
             </div>
           </div>
-        </section>
+        </section> */}
+        <section id="details" className="section-space relative">
+          <div className="container-shell">
+            <Reveal>
+              <SectionHeading
+                eyebrow="Event Details"
+                title="Celebrate this special day with us"
+                description="A graceful day of heartfelt promises, warm embraces, and joyous celebration awaits."
+              />
+            </Reveal>
 
+            {/* Changed from grid to flex-wrap with justify-center to center the cards */}
+            <div className="mt-12 flex flex-wrap justify-center gap-6 sm:gap-8">
+              {eventCards.map((card, index) => {
+                const Icon = card.icon;
+
+                // 1. Added 'flex' to the wrapper so it forces the <Reveal> child to stretch vertically
+                return (
+                  <div
+                    key={card.title}
+                    className="w-full sm:w-[calc(50%-1.5rem)] md:w-60 flex-shrink-0 flex"
+                  >
+                    {/* 2. Passed 'w-full' to Reveal so it fills the wrapper width */}
+                    <Reveal delay={index * 0.06} className="w-full">
+
+                      {/* 3. Added 'flex flex-col' so the inner content can distribute space evenly */}
+                      <div className="card-luxury group h-full w-full flex flex-col rounded-[2rem] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-glow">
+                        <div className="mb-5 inline-flex flex-shrink-0 h-12 w-12 items-center justify-center rounded-2xl bg-champagne text-gold transition group-hover:scale-105">
+                          <Icon size={22} />
+                        </div>
+
+                        <h3 className="text-xl flex-shrink-0">{card.title}</h3>
+
+                        {/* 4. Text area grows to keep cards equal height */}
+                        <p className="mt-3 text-sm flex-grow">{card.description}</p>
+                      </div>
+
+                    </Reveal>
+                  </div>
+                );
+              })}
+            </div>
+
+          </div>
+        </section>
         <Gallery />
 
         <section id="rsvp" className="section-space relative overflow-hidden">

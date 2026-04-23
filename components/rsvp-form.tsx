@@ -13,7 +13,7 @@ type AttendanceStatus = "Attending" | "Not Attending";
 
 type FormState = {
   fullName: string;
-  contactNumber: string;
+  // contactNumber: string;
   guests: string;
   attendanceStatus: AttendanceStatus;
   message: string;
@@ -21,7 +21,7 @@ type FormState = {
 
 const initialState: FormState = {
   fullName: "",
-  contactNumber: "",
+  // contactNumber: "",
   guests: "1",
   attendanceStatus: "Attending",
   message: ""
@@ -63,7 +63,7 @@ export function RSVPForm() {
   const isValid = useMemo(() => {
     return (
       form.fullName.trim().length > 1 &&
-      form.contactNumber.trim().length > 0 &&
+      // form.contactNumber.trim().length > 0 &&
       Number(form.guests) >= 0
     );
   }, [form]);
@@ -80,16 +80,16 @@ export function RSVPForm() {
       return;
     }
 
-    if (!isValidSriLankanPhone(form.contactNumber)) {
-      setFeedback({
-        type: "error",
-        message:
-          "Contact number must be in the format 0713099406 or +94713099406."
-      });
-      return;
-    }
+    // if (!isValidSriLankanPhone(form.contactNumber)) {
+    //   setFeedback({
+    //     type: "error",
+    //     message:
+    //       "Contact number must be in the format 0713099406 or +94713099406."
+    //   });
+    //   return;
+    // }
 
-    const normalizedContactNumber = normalizeSriLankanPhone(form.contactNumber);
+    // const normalizedContactNumber = normalizeSriLankanPhone(form.contactNumber);
 
     setLoading(true);
 
@@ -101,7 +101,7 @@ export function RSVPForm() {
         },
         body: JSON.stringify({
           fullName: form.fullName.trim(),
-          contactNumber: normalizedContactNumber,
+          // contactNumber: normalizedContactNumber,
           guests: Number(form.guests),
           attendanceStatus: form.attendanceStatus,
           message: form.message.trim()
@@ -160,7 +160,7 @@ export function RSVPForm() {
           />
         </div>
 
-        <div>
+        {/* <div>
           <label
             htmlFor="contactNumber"
             className="mb-2 block text-sm font-medium text-ink"
@@ -204,9 +204,9 @@ export function RSVPForm() {
           <p className="mt-1 text-xs text-muted">
             Accepted: 0711234567 or +94711234567
           </p>
-        </div>
+        </div> */}
 
-        <div>
+        <div className="col-span-full">
           <label
             htmlFor="guests"
             className="mb-2 block text-sm font-medium text-ink"
