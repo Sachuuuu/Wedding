@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { siteConfig } from '@/lib/config';
 
 const petals = Array.from({ length: 18 });
 
@@ -12,14 +11,26 @@ export function Hero() {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden pt-28"
     >
-      {/* Background Couple Image */}
+      {/* Background Couple Image Container */}
       <div className="absolute inset-0">
+        {/* Desktop Image (Hidden on mobile, block on medium screens and up) */}
         <Image
           src="/images/hero-couple.jpg"
           alt="Couple background"
           fill
           priority
-          className="object-cover"
+          sizes="100vw"
+          className="hidden md:block object-cover object-center"
+        />
+        
+        {/* Mobile Image (Block on mobile, hidden on medium screens and up) */}
+        <Image
+          src="/images/hero-couple-mobile.jpg"
+          alt="Couple background"
+          fill
+          priority
+          sizes="100vw"
+          className="block md:hidden object-cover object-top"
         />
       </div>
 
