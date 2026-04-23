@@ -7,26 +7,28 @@ import BrushReveal from "@/components/brush-reveal";
 
 type InvitationOpeningProps = {
   onComplete: () => void;
+  onEnvelopeReady: () => void; // <-- 1. Add this new prop
 };
 
 export function InvitationOpening({
-  onComplete
+  onComplete,
+  onEnvelopeReady // <-- 2. Destructure it
 }: InvitationOpeningProps) {
   const [stage, setStage] = useState<"intro" | "envelope" | "opening">("intro");
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setStage("envelope");
-    }, 7000);
+    }, 100);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [onEnvelopeReady]);
 
   useEffect(() => {
     if (stage === "opening") {
       const timer = setTimeout(() => {
         onComplete();
-      }, 2200);
+      }, 1000);
 
       return () => clearTimeout(timer);
     }
@@ -35,7 +37,7 @@ export function InvitationOpening({
  return (
   <AnimatePresence mode="wait">
 
-    {stage === "intro" && (
+    {/* {stage === "intro" && (
       <motion.div
         key="intro"
         initial={{ opacity: 1 }}
@@ -77,10 +79,11 @@ export function InvitationOpening({
           </div>
         </div>
       </motion.div>
-    )}
+    )} */}
 
     {stage === "envelope" && (
       <EnvelopeOpening
+      onMounted={onEnvelopeReady}
         onOpen={() => {
           setStage("opening");
         }}

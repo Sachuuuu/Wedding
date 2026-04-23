@@ -14,6 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Preloads the wax seal image so it renders instantly without delay */}
+        <link rel="preload" href="/envelope/seal.png" as="image" />
+      </head>
       <body>{children}</body>
     </html>
   );

@@ -23,17 +23,22 @@ export function Gallery() {
             <Reveal key={image.src} delay={index * 0.05}>
               <motion.div
                 whileHover={{ y: -4 }}
-                className={`group relative overflow-hidden rounded-[2rem] shadow-soft ${
-                  index === 0 || index === 3 ? "md:col-span-2" : ""
-                }`}
+                className={`group relative overflow-hidden rounded-[2rem] shadow-soft ${index === 0 || index === 3 ? "md:col-span-2" : ""
+                  }`}
               >
                 <div className="absolute inset-0 z-10 bg-gradient-to-t from-ink/30 via-transparent to-white/10 opacity-80 transition group-hover:opacity-100" />
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  width={900}
+                  // Requesting the correct 2:3 aspect ratio from Next.js Optimizer
+                  width={600}
                   height={900}
-                  className="h-[220px] w-full object-cover transition duration-700 group-hover:scale-105 sm:h-[280px] md:h-[340px]"
+                  // Sharpness settings
+                  quality={90}
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  // aspect-[2/3] ensures the container matches your portrait photo
+                  // object-top ensures the head isn't cut off if any small crop occurs
+                  className="aspect-[2/3] w-full object-cover object-top transition duration-700 group-hover:scale-105"
                 />
               </motion.div>
             </Reveal>

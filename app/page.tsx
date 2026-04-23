@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Image from "next/image";
 import { Heart, Sparkles } from "lucide-react";
 import { AudioPlayer } from "@/components/audio-player";
@@ -17,16 +17,27 @@ import { eventCards } from "@/lib/constants";
 
 export default function HomePage() {
   const [opened, setOpened] = useState(false);
-
+  const [envelopeReady, setEnvelopeReady] = useState(false);
+  const handleEnvelopeReady = useCallback(() => {
+    setEnvelopeReady(true);
+  }, []);
   return (
     <>
-      {!opened && <InvitationOpening onComplete={() => setOpened(true)} />}
-
+      {!opened && (
+        <InvitationOpening 
+          onComplete={() => setOpened(true)} 
+          onEnvelopeReady={handleEnvelopeReady} // <-- 3. Pass the function down
+        />
+      )}
       <main
-        className={`relative bg-ivory text-ink transition-all duration-[1400ms] ${opened
-            ? "opacity-100 scale-100 blur-0"
-            : "pointer-events-none opacity-0 scale-[1.01] blur-sm"
-          }`}
+        // 4. Update the className logic:
+        // - If the envelope is NOT ready yet (during the intro), hide the main page (opacity-0).
+        // - Once the envelope covers the screen, set it to opacity-100 behind it.
+        className={`relative bg-ivory text-ink ${
+            !envelopeReady && !opened ? "opacity-0" : "opacity-100"
+        } ${
+            !opened ? "pointer-events-none" : ""
+        }`}
       >
         <Navbar />
         <AudioPlayer />
@@ -169,11 +180,11 @@ export default function HomePage() {
               </p>
 
               <p className="mt-3 text-sm uppercase tracking-widest text-gold">
-                request the honor of the presence of
+                request the honor of your presence
               </p>
 
               <p className="mt-4">
-                on the occasion of the marriage of their daughter
+                at the occasion of the marriage of their daughter
               </p>
 
               <h3 className="mt-4 text-3xl font-serif text-ink">
@@ -203,7 +214,7 @@ export default function HomePage() {
 
             {/* RSVP Heading */}
             <div className="mt-14 text-center">
-              <h3 className="text-2xl font-serif">RSVP (Regrets only)</h3>
+              <h3 className="text-2xl font-serif">RSVP</h3>
               <p className="mt-2 text-sm text-muted">
                 Please confirm your attendance below
               </p>
@@ -218,7 +229,7 @@ export default function HomePage() {
 
             {/* Contact Numbers */}
             <div className="mt-10 text-center text-sm text-muted">
-              <p className="font-semibold text-ink">For regrets please contact</p>
+              <p className="font-semibold text-ink">Contact details</p>
 
               <p className="mt-2">
                 Thushara – <a href="tel:+94718007123" className="text-gold">071 8007123</a>
