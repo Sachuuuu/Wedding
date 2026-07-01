@@ -7,9 +7,9 @@ const ceremonyLabel =
     ? "Wedding"
     : "Homecoming";
 export const metadata: Metadata = {
-  title: `${siteConfig.bride} & ${siteConfig.groom} ${ceremonyLabel}`,
+  title: `${siteConfig.bride}`,
   description:
-    "A romantic and elegant wedding invitation website"
+    "Join us in celebrating Shevona's 1st birthday!"
 };
 
 export default function RootLayout({

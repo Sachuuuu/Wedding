@@ -7,7 +7,7 @@ function doPost(e) {
 function doGet() {
   return jsonResponse_({
     success: true,
-    message: "Wedding RSVP endpoint is running."
+    message: "RSVP endpoint is running."
   });
 }
 

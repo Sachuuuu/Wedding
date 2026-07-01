@@ -18,16 +18,32 @@ export const siteConfig = {
   },
 
   // --- 📝 TEXT & CONTENT ---
+  celebrant: "Shevona", // Replaces bride/groom
+  parents: "Sachitha & Vinushi", // New field for parents
+  // Contact details
+  contactName: "Sachitha",
+  contactNumber: "071 8007123",
+  contactNumberInt: "+9471 8007123",
+  contactEmail: "sachithasa@gmail.com",
+
+  hero: {
+    titleAmpersand: "is turning One", // Or replace with specific age
+    subtitle: "Join us in celebrating this special day with joy and laughter",
+    ctaText: "RSVP",
+    ctaLink: "#rsvp",
+  },
+  
+  // --- 📝 TEXT & CONTENT ---
   bride: "Buddhimanthi",
   groom: "Mahinsa",
   brideParents: "Mr. & Mrs. Thushara Bulathsinhala",
   groomParents: "Mr. & Mrs. Athula Ranasinghe",
-  ceremonyDate: "2026-05-25T09:00:00+05:30",
-  venue: "Lotus Ballroom Shangri-La, Colombo",
-  time: "Poruwa Ceremony at 09:30 AM · Reception at 10:00 AM to 02:30 PM",
-  dressCode: "Elegant attire or formal traditional wear.",
-  ceremonyType: "Wedding Ceremony",
-  ceremonyDescription: "A warm gathering to witness the beginning of our forever.",
+  ceremonyDate: "2026-07-19T16:00:00+05:30",
+  venue: "Our Residence, Yakkala",
+  time: "Celebration from 04:00 PM onwards",
+  dressCode: "Comfortable party wear.",
+  ceremonyType: "Birthday",
+  ceremonyDescription: "A joyful day to celebrate our little one's milestone.",
   receptionDescription: "A beautiful day of music, laughter, and celebration with loved ones.",
   brideContactName: "Thushara",
   brideContactNumber: "071 8007123",
@@ -37,14 +53,6 @@ export const siteConfig = {
   groomContactNumberInt: "+9477 7687481",
   brideContactEmail: "sachithasa@gmail.com",
   groomContactEmail: "sachithasa@gmail.com",
-
-  // Hero Section Content
-  hero: {
-    titleAmpersand: "&",
-    subtitle: "Together with their families invite you to celebrate their wedding",
-    ctaText: "RSVP Now",
-    ctaLink: "#rsvp",
-  },
 
   // --- ⚙️ SYSTEM CONFIG ---
   appsScriptUrl:

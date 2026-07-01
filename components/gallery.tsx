@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { galleryImages } from "@/lib/constants";
 import { Reveal } from "./reveal";
 import { SectionHeading } from "./section-heading";
+import { siteConfig } from "@/lib/config";
 
 export function Gallery() {
   return (
@@ -13,8 +14,12 @@ export function Gallery() {
         <Reveal>
           <SectionHeading
             eyebrow="Captured Moments"
-            title="A glimpse into our love story"
-            description="A curated gallery space prepared to beautifully display the special memories from our engagement and pre-wedding journey."
+            title={siteConfig.ceremonyType === "Birthday"
+              ? "A glimpse into our little one's first year"
+              : "A glimpse into our love story"}
+            description={siteConfig.ceremonyType === "Birthday"
+              ? "A curated gallery space displaying the special memories from our first year together."
+              : "A curated gallery space prepared to beautifully display the special memories from our engagement and pre-wedding journey."}
           />
         </Reveal>
 
@@ -23,9 +28,8 @@ export function Gallery() {
             <Reveal key={image.src} delay={index * 0.05}>
               <motion.div
                 whileHover={{ y: -4 }}
-                className={`group relative overflow-hidden rounded-[2rem] shadow-soft ${
-                  index === 0 || index === 3 ? "md:col-span-2" : ""
-                }`}
+                className={`group relative overflow-hidden rounded-[2rem] shadow-soft ${index === 0 || index === 3 ? "md:col-span-2" : ""
+                  }`}
               >
                 <div className="absolute inset-0 z-10 bg-gradient-to-t from-ink/30 via-transparent to-white/10 opacity-80 transition group-hover:opacity-100" />
                 <Image

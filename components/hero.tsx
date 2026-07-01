@@ -1,4 +1,3 @@
-// components/hero.tsx
 'use client';
 
 import Image from 'next/image';
@@ -6,8 +5,12 @@ import { motion } from 'framer-motion';
 import { siteConfig } from '@/lib/config';
 
 const petals = Array.from({ length: 18 });
+
+// Updated logic to support Birthday
 const ceremonyLabel =
-  siteConfig.ceremonyType === "Wedding Ceremony"
+  siteConfig.ceremonyType === "Birthday"
+    ? "Birthday"
+    : siteConfig.ceremonyType === "Wedding Ceremony"
     ? "Wedding"
     : "Homecoming";
 
@@ -17,24 +20,21 @@ export function Hero() {
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden pt-28"
     >
-      {/* Background Couple Image */}
+      {/* Background Image */}
       <div className="absolute inset-0">
         <Image
           src="/images/hero-couple.jpg"
-          alt="Couple background"
+          alt="Background"
           fill
           priority
           className="object-cover"
         />
       </div>
 
-      {/* Soft overlay for readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/20 to-black/40" />
-
-      {/* Romantic blur glow */}
       <div className="absolute inset-0 bg-hero-radial opacity-70" />
 
-      {/* Floating petals */}
+      {/* Floating elements */}
       <div className="absolute inset-0 overflow-hidden">
         {petals.map((_, i) => (
           <motion.span
@@ -69,15 +69,22 @@ export function Hero() {
             transition={{ duration: 0.85 }}
             className="text-5xl sm:text-6xl lg:text-8xl font-serif text-hero-text"
           >
-            {ceremonyLabel === "Wedding" ? (
+            {siteConfig.ceremonyType === "Birthday" ? (
+              <>
+                {siteConfig.celebrant} 
+                <span className="block text-4xl sm:text-5xl mt-4 font-script text-hero-amp">
+                  {siteConfig.hero.titleAmpersand}
+                </span>
+              </>
+            ) : ceremonyLabel === "Wedding" ? (
               <>
                 {siteConfig.bride} <span className="text-hero-amp">{siteConfig.hero.titleAmpersand}</span> {siteConfig.groom}
-              </>) :
-              (
-                <>
-                  {siteConfig.groom} <span className="text-hero-amp">{siteConfig.hero.titleAmpersand}</span> {siteConfig.bride}
-                </>
-              )}
+              </>
+            ) : (
+              <>
+                {siteConfig.groom} <span className="text-hero-amp">{siteConfig.hero.titleAmpersand}</span> {siteConfig.bride}
+              </>
+            )}
           </motion.h1>
 
           <motion.p
