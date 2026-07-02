@@ -56,7 +56,7 @@ export default function EnvelopeOpening({
                 <svg
                     viewBox="0 0 100 100"
                     preserveAspectRatio="none"
-                    className="w-full h-full rotate-180 text-[#c49d58] drop-shadow-[0_-8px_16px_rgba(0,0,0,0.6)]"
+                    className="w-full h-full rotate-180 text-[#D8A79A] drop-shadow-[0_-8px_16px_rgba(0,0,0,0.6)]"  //text-[#c49d58]
                 >
                     {/* Classic sharp V-shape meeting at X=50, Y=75 */}
                     <path
@@ -78,7 +78,7 @@ export default function EnvelopeOpening({
                 <svg
                     viewBox="0 0 100 100"
                     preserveAspectRatio="none"
-                    className="w-full h-full text-[#d7bc8c]"
+                    className="w-full h-full text-[#E8A7B2]"
                     style={{ filter: "drop-shadow(0 12px 24px rgba(0,0,0,0.5))" }}
                 >
                     {/* Classic sharp V-shape meeting at X=50, Y=75 */}
