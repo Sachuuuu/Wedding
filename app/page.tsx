@@ -109,21 +109,43 @@ export default function HomePage() {
             <Reveal>
               <SectionHeading
                 eyebrow="Event Details"
-                title={siteConfig.ceremonyType === "Birthday" ? "Celebrating a special day" : "Celebrate this special day with us"}
-                description={siteConfig.ceremonyType === "Birthday" ? "Join us for an afternoon of fun, food, and celebration." : "A graceful day of heartfelt promises, warm embraces, and joyous celebration awaits."}
+                title="Celebrate this special day with us"
+                description="A graceful day of heartfelt promises, warm embraces, and joyous celebration awaits."
               />
             </Reveal>
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-5">
-              {eventCards.map((card, index) => (
-                <Reveal key={card.title} delay={index * 0.06}>
-                  <div className="card-luxury group h-full rounded-[2rem] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-glow">
-                    <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-champagne text-gold transition group-hover:scale-105"><card.icon size={22} /></div>
-                    <h3 className="text-xl">{card.title}</h3>
-                    <p className="mt-3 text-sm">{card.description}</p>
+
+            {/* Changed from grid to flex-wrap with justify-center to center the cards */}
+            <div className="mt-12 flex flex-wrap justify-center gap-6 sm:gap-8">
+              {eventCards.map((card, index) => {
+                const Icon = card.icon;
+
+                // 1. Added 'flex' to the wrapper so it forces the <Reveal> child to stretch vertically
+                return (
+                  <div
+                    key={card.title}
+                    className="w-full sm:w-[calc(50%-1.5rem)] md:w-60 flex-shrink-0 flex"
+                  >
+                    {/* 2. Passed 'w-full' to Reveal so it fills the wrapper width */}
+                    <Reveal delay={index * 0.06} className="w-full">
+
+                      {/* 3. Added 'flex flex-col' so the inner content can distribute space evenly */}
+                      <div className="card-luxury group h-full w-full flex flex-col rounded-[2rem] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-glow">
+                        <div className="mb-5 inline-flex flex-shrink-0 h-12 w-12 items-center justify-center rounded-2xl bg-champagne text-gold transition group-hover:scale-105">
+                          <Icon size={22} />
+                        </div>
+
+                        <h3 className="text-xl flex-shrink-0">{card.title}</h3>
+
+                        {/* 4. Text area grows to keep cards equal height */}
+                        <p className="mt-3 text-sm flex-grow">{card.description}</p>
+                      </div>
+
+                    </Reveal>
                   </div>
-                </Reveal>
-              ))}
+                );
+              })}
             </div>
+
           </div>
         </section>
 

@@ -47,11 +47,11 @@ export const eventCards = [
     description: `${siteConfig.ceremonyDescription}`,
     icon: CalendarHeart
   },
-  {
-    title: "Reception",
-    description: `${siteConfig.receptionDescription}`,
-    icon: GlassWater
-  },
+  // {
+  //   title: "Reception",
+  //   description: `${siteConfig.receptionDescription}`,
+  //   icon: GlassWater
+  // },
   {
     title: "Venue",
     description: `${siteConfig.venue}`,
