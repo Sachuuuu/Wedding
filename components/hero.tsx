@@ -67,12 +67,12 @@ export function Hero() {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85 }}
-            className="text-5xl sm:text-6xl lg:text-8xl font-serif text-hero-text"
+            className="text-5xl sm:text-6xl lg:text-8xl font-serif text-hero-text drop-shadow-[0_4px_10px_rgba(0,0,0,0.45)]"
           >
             {siteConfig.ceremonyType === "Birthday" ? (
               <>
                 {siteConfig.celebrant} 
-                <span className="block text-4xl sm:text-5xl mt-4 font-script text-hero-amp">
+                <span className="mt-4 block text-4xl sm:text-5xl font-script text-hero-amp drop-shadow-[0_4px_8px_rgba(0,0,0,0.4)]">
                   {siteConfig.hero.titleAmpersand}
                 </span>
               </>

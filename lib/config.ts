@@ -55,6 +55,9 @@ export const siteConfig = {
   groomContactEmail: "sachithasa@gmail.com",
 
   // --- ⚙️ SYSTEM CONFIG ---
-  appsScriptUrl:
-    process.env.GOOGLE_APPS_SCRIPT_URL || "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"
+  appsScriptUrl: 
+    process.env.GOOGLE_APPS_SCRIPT_URL ||
+    process.env.NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL ||
+    process.env.GOOGLE_APPS_SCRIPT_WEB_APP_URL ||
+    "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"
 };

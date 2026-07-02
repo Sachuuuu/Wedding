@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/config";
 
 type RSVPRequest = {
   fullName?: string;
-  contactNumber?: string;
+  // contactNumber?: string;
   guests?: number;
   attendanceStatus?: "Attending" | "Not Attending";
   message?: string;
@@ -15,7 +15,7 @@ export async function POST(req: Request) {
 
     if (
       !body.fullName ||
-      !body.contactNumber ||
+      // !body.contactNumber ||
       body.guests === undefined ||
       !body.attendanceStatus
     ) {
@@ -25,12 +25,14 @@ export async function POST(req: Request) {
       );
     }
 
-    if (!siteConfig.appsScriptUrl || siteConfig.appsScriptUrl.includes("YOUR_DEPLOYMENT_ID")) {
+    const appsScriptUrl = siteConfig.appsScriptUrl;
+
+    if (!appsScriptUrl || appsScriptUrl.includes("YOUR_DEPLOYMENT_ID")) {
       return NextResponse.json(
         {
           success: false,
           message:
-            "Google Apps Script URL is not configured. Add GOOGLE_APPS_SCRIPT_URL to your environment variables."
+            "Google Apps Script URL is not configured. Add GOOGLE_APPS_SCRIPT_URL to your environment variables and deploy the web app in Google Apps Script."
         },
         { status: 500 }
       );
@@ -38,20 +40,35 @@ export async function POST(req: Request) {
 
     const payload = {
       fullName: body.fullName,
-      contactNumber: body.contactNumber,
+      // contactNumber: body.contactNumber,
       guests: body.guests,
       attendanceStatus: body.attendanceStatus,
       message: body.message || ""
     };
 
-    const response = await fetch(siteConfig.appsScriptUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "text/plain"
-      },
-      body: JSON.stringify(payload),
-      cache: "no-store"
-    });
+    let response;
+    try {
+      response = await fetch(appsScriptUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(payload),
+        cache: "no-store"
+      });
+    } catch (error) {
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            error instanceof Error
+              ? `Unable to reach the Google Apps Script endpoint: ${error.message}`
+              : "Unable to reach the Google Apps Script endpoint."
+        },
+        { status: 502 }
+      );
+    }
 
     const text = await response.text();
 
@@ -69,7 +86,9 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           success: false,
-          message: data.message || "Failed to save RSVP to Google Sheet."
+          message:
+            data.message ||
+            `Google Apps Script returned status ${response.status}. Check that the web app is deployed and that the spreadsheet is linked correctly.`
         },
         { status: 500 }
       );
