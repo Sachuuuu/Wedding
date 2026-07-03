@@ -50,7 +50,7 @@ export const siteConfig = {
   groom: "Mahinsa",
   brideParents: "Mr. & Mrs. Thushara Bulathsinhala",
   groomParents: "Mr. & Mrs. Athula Ranasinghe",
-  ceremonyDate: "2026-07-19T16:00:00+05:30",
+  ceremonyDate: "2026-07-19T18:00:00+05:30",
   venue: "Our Residence, Yakkala",
   time: "Celebration from 04:00 PM onwards",
   dressCode: "Comfortable party wear.",
