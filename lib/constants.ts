@@ -27,22 +27,22 @@ export const galleryImages = [
     src: "/images/gallery-3.jpg",
     alt: "Romantic gallery image 3"
   },
-  {
-    src: "/images/gallery-4.jpg",
-    alt: "Romantic gallery image 4"
-  },
-  {
-    src: "/images/gallery-5.jpg",
-    alt: "Romantic gallery image 5"
-  },
+  // {
+  //   src: "/images/gallery-4.jpg",
+  //   alt: "Romantic gallery image 4"
+  // },
+  // {
+  //   src: "/images/gallery-5.jpg",
+  //   alt: "Romantic gallery image 5"
+  // },
   {
     src: "/images/gallery-6.jpg",
     alt: "Romantic gallery image 6"
   },
-  {
-    src: "/images/gallery-7.jpg",
-    alt: "Romantic gallery image 7"
-  },
+  // {
+  //   src: "/images/gallery-7.jpg",
+  //   alt: "Romantic gallery image 7"
+  // },
   {
     src: "/images/gallery-8.jpg",
     alt: "Romantic gallery image 8"

@@ -85,7 +85,7 @@ export default function HomePage() {
                     A year ago, our world changed in the most beautiful way imaginable. From the first moment we held our little one, life transformed into a whirlwind of tiny smiles, gentle coos, and endless discoveries. Watching Shevona grow, learn, and brighten every corner of our lives has been the most profound and rewarding journey we have ever embarked upon.
                   </p>
                   <p className="mt-4 leading-relaxed">
-                    This first year has been a testament to the power of unconditional love. Through every milestone the first time she laughed, the first time she reached out to hold our hand, and every curious moment in between we have realized just how lucky we are. Now, as we approach this special anniversary, we invite you to join us in celebrating this wonderful first chapter of her life, filled with memories we will cherish forever.
+                    This first year has been a testament to the power of unconditional love. Through every milestone the first time she laughed, the first time she reached out to hold our hand, and every curious moment in between we have realized just how lucky we are. Now, as we approach this special day, we invite you to join us in celebrating this wonderful first chapter of her life, filled with memories we will cherish forever.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-4">
                     <div className="card-luxury flex items-center gap-3 rounded-full px-5 py-3 text-sm">

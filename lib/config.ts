@@ -52,7 +52,7 @@ export const siteConfig = {
   groomParents: "Mr. & Mrs. Athula Ranasinghe",
   ceremonyDate: "2026-07-19T18:00:00+05:30",
   venue: "Our Residence, Yakkala",
-  time: "Celebration from 04:00 PM onwards",
+  time: "Celebration from 06:00 PM onwards",
   dressCode: "Comfortable party wear.",
   ceremonyType: "Birthday",
   ceremonyDescription: "A joyful day to celebrate our little one's milestone.",
