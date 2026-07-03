@@ -29,12 +29,12 @@ const config: Config = {
         sans: ["Inter", "system-ui", "sans-serif"]
       },
       boxShadow: {
-        soft: "0 12px 40px rgba(91, 59, 61, 0.1)",
-        glow: "0 12px 35px rgba(216, 167, 154, 0.24)"
+        soft: "0 12px 40px rgba(71, 46, 40, 0.08)",
+        glow: "0 12px 35px rgba(197, 164, 109, 0.18)"
       },
       backgroundImage: {
         "hero-radial":
-          "radial-gradient(circle at top, rgba(247, 221, 226, 0.55), transparent 35%), radial-gradient(circle at bottom right, rgba(216, 167, 154, 0.2), transparent 25%)"
+          "radial-gradient(circle at top, rgba(239, 207, 206, 0.35), transparent 35%), radial-gradient(circle at bottom right, rgba(197, 164, 109, 0.14), transparent 25%)"
       },
       animation: {
         float: "float 8s ease-in-out infinite",

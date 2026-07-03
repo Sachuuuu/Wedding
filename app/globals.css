@@ -23,7 +23,7 @@ body {
 }
 
 ::selection {
-  background: rgba(232, 167, 178, 0.32);
+  background: theme('colors.rose' / 28%);
   color: theme('colors.ink');
 }
 
@@ -76,29 +76,25 @@ body {
     inset: -1px;
     z-index: -1;
     border-radius: inherit;
-    background: linear-gradient(
-      135deg,
-      rgba(216, 167, 154, 0.7),
-      rgba(247, 221, 226, 0.65),
-      rgba(255, 255, 255, 0.8)
-    );
+    background: linear-gradient(135deg,
+        rgba(197, 164, 109, 0.6),
+        rgba(239, 207, 206, 0.5),
+        rgba(255, 255, 255, 0.7));
   }
 
   .glass-line {
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(216, 167, 154, 0.5),
-      transparent
-    );
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(197, 164, 109, 0.5),
+        transparent);
     height: 1px;
   }
 }
 
 .bg-grid {
   background-image:
-    linear-gradient(rgba(216, 167, 154, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(216, 167, 154, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(197, 164, 109, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(197, 164, 109, 0.06) 1px, transparent 1px);
   background-size: 34px 34px;
 }
 

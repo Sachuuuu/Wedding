@@ -3,30 +3,30 @@
 export const siteConfig = {
   // --- 🎨 GLOBAL COLOR THEME ---
   colors: {
-        background: "#FFF7F8", // baby pink main background
-    foreground: "#5B3B3D", // warm rose-brown text
-    primary: "#D8A79A",    // rose gold accent
-    secondary: "#E8A7B2",  // soft pink accent
-    accent: "#F7DDE2",     // baby pink blush
-    champagne: "#F9E7DC",  // warm pink champagne tone
-    muted: "#8A686A",      // soft muted rose
+    //     background: "#FFF7F8", // baby pink main background
+    // foreground: "#5B3B3D", // warm rose-brown text
+    // primary: "#D8A79A",    // rose gold accent
+    // secondary: "#E8A7B2",  // soft pink accent
+    // accent: "#F7DDE2",     // baby pink blush
+    // champagne: "#F9E7DC",  // warm pink champagne tone
+    // muted: "#8A686A",      // soft muted rose
 
-    // Hero Section specific colors
-    heroText: "#FFFDFD", // main banner name text color
-    heroAmpersand: "#C9867A", // rose gold heart/ampersand color
-    heroSubtitle: "#F7E4E8", // soft pink subtitle color
-    // background: "#FAF7F2", // ivory (main bg)
-    // foreground: "#2E2726", // ink (main topics/countdown/rsvp lables/ crad topics/ image tints)
-    // primary: "#C5A46D",    // gold (small topics/ card icons)
-    // secondary: "#D6A8A5",  // rose (* marks)
-    // accent: "#EFCFCE",     // blush (BG blush marks)
-    // champagne: "#F3E8D6",  // card icon BG
-    // muted: "#6C625E",      // (long contents/nav bar)
-    
     // // Hero Section specific colors
-    // heroText: "#F8F4ED", // Main banner name text color
-    // heroAmpersand: "#D4AF37", // Main banner "&" text color
-    // heroSubtitle: "#F1E7E3", // // Main banner slogan text color
+    // heroText: "#FFFDFD", // main banner name text color
+    // heroAmpersand: "#C9867A", // rose gold heart/ampersand color
+    // heroSubtitle: "#F7E4E8", // soft pink subtitle color
+    background: "#FAF7F2", // ivory (main bg)
+    foreground: "#2E2726", // ink (main topics/countdown/rsvp lables/ crad topics/ image tints)
+    primary: "#C5A46D",    // gold (small topics/ card icons)
+    secondary: "#D6A8A5",  // rose (* marks)
+    accent: "#EFCFCE",     // blush (BG blush marks)
+    champagne: "#F3E8D6",  // card icon BG
+    muted: "#6C625E",      // (long contents/nav bar)
+    
+    // Hero Section specific colors
+    heroText: "#F8F4ED", // Main banner name text color
+    heroAmpersand: "#D4AF37", // Main banner "&" text color
+    heroSubtitle: "#F1E7E3", // // Main banner slogan text color
   },
 
   // --- 📝 TEXT & CONTENT ---
