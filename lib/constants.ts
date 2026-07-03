@@ -38,6 +38,18 @@ export const galleryImages = [
   {
     src: "/images/gallery-6.jpg",
     alt: "Romantic gallery image 6"
+  },
+  {
+    src: "/images/gallery-7.jpg",
+    alt: "Romantic gallery image 7"
+  },
+  {
+    src: "/images/gallery-8.jpg",
+    alt: "Romantic gallery image 8"
+  },
+  {
+    src: "/images/gallery-9.jpg",
+    alt: "Romantic gallery image 9"
   }
 ];
 

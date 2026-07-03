@@ -35,9 +35,15 @@ export function Gallery() {
                 <Image
                   src={image.src}
                   alt={image.alt}
-                  width={900}
+                  // Requesting the correct 2:3 aspect ratio from Next.js Optimizer
+                  width={600}
                   height={900}
-                  className="h-[220px] w-full object-cover transition duration-700 group-hover:scale-105 sm:h-[280px] md:h-[340px]"
+                  // Sharpness settings
+                  quality={90}
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  // aspect-[2/3] ensures the container matches your portrait photo
+                  // object-top ensures the head isn't cut off if any small crop occurs
+                  className="aspect-[2/3] w-full object-cover object-top transition duration-700 group-hover:scale-105"
                 />
               </motion.div>
             </Reveal>
